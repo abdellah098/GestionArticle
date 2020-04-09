@@ -1,0 +1,67 @@
+@model CrudApp.Models.Article
+@{
+ViewData["Title"] = "Show Article";
+}
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="modal fade" id="@ArticleId">
+                    <div class="modal-dialog">
+                        
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <partial name="~/Views/Article/Show.cshtml" model="@Article" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h1>@Model.Reference</h1>
+<div>
+    <table>
+        <tr>
+            <th>
+                Désignation:
+            </th>
+            <td>
+                @Model.Designation
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Categorie:
+            </th>
+            <td>
+                @Model.Categorie
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Prix:
+            </th>
+            <td>
+                @Model.Prix Tnd
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Quantité:
+            </th>
+            <td>
+                @Model.Quantite
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Promotion:
+            </th>
+            <td>
+                @Model.Promo
+            </td>
+        </tr>
+    </table>

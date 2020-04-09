@@ -1,0 +1,106 @@
+﻿@model List<CrudApp.Models.Article>
+@{
+    ViewData["Title"] = "Home Page";
+}
+@section Styles {
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+}
+
+<h1>Gestion Des Articles</h1>
+
+<form  asp-controller="Article" asp-action="Index" method="post" class="form">
+   <div class="form-group row">
+      <label for="inputText" class="col-sm-2 col-form-label">Recherche</label>
+      <div class="col-sm-9">
+          <input type="text" class="form-control form-control-sm" id="KeyWord" name="KeyWord" placeholder="Seacrch">
+      </div>
+      <div class="col-sm-1">
+         <button type="submit" class="btn btn-secondary btn-sm">Search</button>
+      </div>
+   </div>
+</form>
+<br>
+<hr>
+
+<div class="nouveau-container">
+   <a href="#" data-toggle="modal"  data-target="#createModal">Nouveau</a>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col" class="text-center">Reference</th>
+      <th scope="col" class="text-center">Désignation</th>
+      <th scope="col" class="text-center">Prix</th>
+      <th scope="col" class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var Article in Model)
+    {
+       var ArticleId = Article.Designation + Article.Reference.ToString();
+       <tr>
+         <th scope="row">@Article.Reference</th>
+         <td>@Article.Designation</td>
+         <td>@Article.Prix</td>
+         <td>
+           <div class="actions-container">
+            <button type="button" class="btn  btn-sm btn-outline-danger">
+               <a asp-action="Delete" asp-route-Reference="@Article.Reference">
+                <img src="~/images/icons8-delete-20.png">  
+               </a>
+            </button>
+
+            <div>
+               <div>
+                  <button type="button" class="btn  btn-sm btn-outline-secondary" >
+                     <a href="#" data-toggle="modal"  data-target="#@Article.Designation">
+                        <img src="~/images/icons8-edit-20.png">  
+                     </a>  
+                  </button>
+               </div>
+               <div>
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-md-12">
+
+                         <div class="modal fade" id="@Article.Designation">
+                             <div class="modal-dialog dialog-lg">
+                                 <div class="modal-content">                
+                                     <div class="modal-body">
+                                        <partial name="~/Views/Article/Edit.cshtml" model="@Article" /> 
+                                     </div>
+                                 </div>
+                             </div>
+                          </div>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div>
+               <div>
+                  <button type="button" class="btn  btn-sm btn-outline-secondary">
+                     <a href="#" data-toggle="modal"  data-target="#@ArticleId" >
+                        <img src="~/images/icons8-eye-20.png">  
+                     </a>
+                  </button>
+               </div>
+            </div>
+           </div>
+         </td>
+       </tr>
+    }
+  </tbody>
+</table>
+
+@* <a asp-action="Show" asp-route-Reference="@Article.Reference">Détail</a> *@
+
+
+@* Create View popup *@
+
+<partial name="~/Views/Article/Create.cshtml" model="new Article()" />
+
+
+

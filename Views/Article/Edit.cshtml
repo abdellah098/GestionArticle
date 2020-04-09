@@ -1,0 +1,50 @@
+@model CrudApp.Models.Article
+@{
+    ViewData["Title"] = "Edit Article";
+}
+@section Styles {
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+}
+<form asp-controller="Article" asp-action="Update" method="post" class="form">
+    <div class="form-group row">
+
+        <label for="inputText" class="col-sm-2 col-form-label" asp-for="Designation"></label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control form-control-sm input-field"  asp-for="Designation" value="@Model.Designation">
+        </div>
+
+        <label for="inputText" class="col-sm-2 col-form-label" asp-for="Categorie"></label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control form-control-sm input-field"  asp-for="Categorie" value="@Model.Categorie">
+        </div>
+
+        <label for="inputText" class="col-sm-2 col-form-label" asp-for="Prix"></label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control form-control-sm input-field"  asp-for="Prix" value="@Model.Prix">
+        </div>
+
+        <label for="inputText" class="col-sm-2 col-form-label" asp-for="Promo"></label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control form-control-sm input-field"  asp-for="Promo" value="@Model.Promo">
+        </div>
+    </div>
+     
+      <button type="reset" class="btn btn-secondary btn-sm">Annuler</button>
+      <button type="submit" class="btn btn-secondary btn-sm">Modifier</button>
+        <input type="hidden" asp-for="Reference" />
+</form>
+   
+            
+
+
+
+
+
+
+
+
+
+
+
+
+

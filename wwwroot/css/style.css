@@ -1,0 +1,25 @@
+.nouveau-container{
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+}
+
+.actions-container{
+  display: flex;
+  flex-flow: row;
+  justify-content:space-around;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.form{
+  margin-top: 30px;
+  margin-left: 25px;
+}
+
+
+#modal-width {
+  width: 800px !important; 
+}

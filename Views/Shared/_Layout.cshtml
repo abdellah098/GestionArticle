@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>@ViewData["Title"] - CrudApp</title>
+
+  <!-- Bootstrap core CSS --> 
+
+  <environment include="Development">
+       <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+       @RenderSection("Styles", required: false)
+        <link href="~/css/style.css" rel="stylesheet">
+   </environment>
+</head>
+
+<body>
+<header>
+    
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Les Articles</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+ <div class="container" >
+        @* <partial name="_CookieConsentPartial" /> *@
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+ </div>
+  <!-- Bootstrap core JavaScript -->
+  <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.slim.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  </environment> 
+  
+  <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>
